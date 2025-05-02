@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:provider/provider.dart';
+import 'package:vilcom_digital_restaurant/views/authentication/login.dart';
 
 import 'config/theme.dart';
 import 'custom_widgets/action_button.dart';
@@ -160,7 +161,7 @@ class _AppState extends State<App> {
         );
       },
       debugShowCheckedModeBanner: false,
-      home: SplashScreen(),
+      home: Login(),
       theme: theme,
       supportedLocales: const [Locale('en', 'UK'), Locale('sw', 'TZ')],
       // locale: Locale(translationProvider.currentLanguage),

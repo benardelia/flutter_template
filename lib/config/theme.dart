@@ -14,11 +14,11 @@ class MaterialTheme {
     );
     return const ColorScheme(
       brightness: Brightness.light,
-      primary: Color(0xff305596),
-      surfaceTint: Color(0xff1181C8),
-      onPrimary: Color(0xff1181C8),
-      primaryContainer: Color(0xffffdea6),
-      onPrimaryContainer: Color.fromARGB(255, 127, 127, 127),
+      primary: Color(0xff8E6E53),
+      surfaceTint: Color(0xff3C6E71),
+      onPrimary: Color(0xff2C1320),
+      primaryContainer: Color(0xffE9D985),
+      onPrimaryContainer: Color(0xffA7CECB),
       secondary: Color.fromARGB(255, 191, 154, 44),
       onSecondary: Color.fromARGB(255, 165, 187, 224),
       secondaryContainer: Color(0xffc9e6ff),
@@ -66,7 +66,7 @@ class MaterialTheme {
     const PageTransitionsTheme(
       builders: {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.android: CupertinoPageTransitionsBuilder()
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       },
     );
     return theme(lightScheme());
@@ -127,7 +127,7 @@ class MaterialTheme {
     const PageTransitionsTheme(
       builders: {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.android: CupertinoPageTransitionsBuilder()
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       },
     );
     return theme(lightMediumContrastScheme());
@@ -192,7 +192,7 @@ class MaterialTheme {
     const PageTransitionsTheme(
       builders: {
         TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-        TargetPlatform.android: CupertinoPageTransitionsBuilder()
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
       },
     );
     return const ColorScheme(
@@ -360,47 +360,49 @@ class MaterialTheme {
   }
 
   ThemeData theme(ColorScheme colorScheme) => ThemeData(
-      pageTransitionsTheme: const PageTransitionsTheme(
-        builders: {
-          TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
-          TargetPlatform.android: CupertinoPageTransitionsBuilder()
-        },
+    pageTransitionsTheme: const PageTransitionsTheme(
+      builders: {
+        TargetPlatform.iOS: CupertinoPageTransitionsBuilder(),
+        TargetPlatform.android: CupertinoPageTransitionsBuilder(),
+      },
+    ),
+    useMaterial3: true,
+    brightness: colorScheme.brightness,
+    colorScheme: colorScheme,
+    textTheme: textTheme.apply(
+      bodyColor: colorScheme.onSurface,
+      displayColor: colorScheme.onSurface,
+    ),
+    iconTheme: IconThemeData(color: colorScheme.onPrimary),
+    scaffoldBackgroundColor: colorScheme.surfaceDim,
+    canvasColor: colorScheme.surface,
+    inputDecorationTheme: InputDecorationTheme(
+      border: OutlineInputBorder(
+        borderSide: BorderSide.none, // Removes default border
+        borderRadius: BorderRadius.circular(10),
       ),
-      useMaterial3: true,
-      brightness: colorScheme.brightness,
-      colorScheme: colorScheme,
-      textTheme: textTheme.apply(
-        bodyColor: colorScheme.onSurface,
-        displayColor: colorScheme.onSurface,
+      enabledBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: MaterialTheme.lightScheme().primary,
+          width: 4.0,
+        ), // Blue bottom border
       ),
-      iconTheme: IconThemeData(color: colorScheme.onPrimary),
-      scaffoldBackgroundColor: colorScheme.surfaceDim,
-      canvasColor: colorScheme.surface,
-      inputDecorationTheme: InputDecorationTheme(
-        border: OutlineInputBorder(
-          borderSide: BorderSide.none, // Removes default border
-          borderRadius: BorderRadius.circular(10),
-        ),
-        enabledBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-              color: MaterialTheme.lightScheme().primary,
-              width: 4.0), // Blue bottom border
-        ),
-        focusedBorder: UnderlineInputBorder(
-          borderSide: BorderSide(
-              color: MaterialTheme.lightScheme().primary,
-              width: 4.5), // Blue bottom border on focus
-        ),
+      focusedBorder: UnderlineInputBorder(
+        borderSide: BorderSide(
+          color: MaterialTheme.lightScheme().primary,
+          width: 4.5,
+        ), // Blue bottom border on focus
       ),
-      elevatedButtonTheme: ElevatedButtonThemeData(
-          style: ElevatedButton.styleFrom(
+    ),
+    elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ElevatedButton.styleFrom(
         padding: const EdgeInsets.symmetric(vertical: 15),
         backgroundColor: MaterialTheme.lightScheme().primary,
         foregroundColor: Colors.white,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(10),
-        ),
-      )));
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      ),
+    ),
+  );
 
   /// Warning
   static const warning = ExtendedColor(
@@ -486,10 +488,7 @@ class MaterialTheme {
     ),
   );
 
-  List<ExtendedColor> get extendedColors => [
-        warning,
-        success,
-      ];
+  List<ExtendedColor> get extendedColors => [warning, success];
 }
 
 class ExtendedColor {
