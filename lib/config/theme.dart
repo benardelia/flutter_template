@@ -14,7 +14,7 @@ class MaterialTheme {
     );
     return const ColorScheme(
       brightness: Brightness.light,
-      primary: Color(0xff8E6E53),
+      primary: Colors.deepOrange,
       surfaceTint: Color(0xff3C6E71),
       onPrimary: Color(0xff2C1320),
       primaryContainer: Color(0xffE9D985),
