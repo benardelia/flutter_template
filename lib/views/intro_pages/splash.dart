@@ -12,6 +12,14 @@ class Splash extends StatefulWidget {
 
 class _SplashState extends State<Splash> {
   @override
+  void initState() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Navigator.pushReplacementNamed(context, '/login');
+    });
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var circleWidth = context.screenWidth * 0.7;
     return Scaffold(
@@ -84,8 +92,8 @@ class _SplashState extends State<Splash> {
 
           Positioned(
             bottom: 20,
-            left: 0,
-            right: 0,
+            // left: 0,
+            right: context.screenWidth * 0.2,
             child: const Text(
               'Powered by BraveTech',
               style: TextStyle(fontSize: 16, color: Colors.white),

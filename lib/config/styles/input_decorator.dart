@@ -13,7 +13,7 @@ class InputDecorationX extends InputDecoration {
   }) {
     return InputDecoration(
       filled: true,
-      fillColor: Color.fromARGB(255, 172, 132, 106),
+      fillColor:Colors.white,
       hintText: hint,
       prefixIcon: icon != null ? HugeIcon(
         icon: icon,
