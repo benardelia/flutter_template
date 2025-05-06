@@ -18,7 +18,6 @@ class HomeFoodItem extends StatelessWidget {
       width: 270,
       padding: 0,
       border: 0,
-
       // color: context.primary,
       child: Stack(
         children: [

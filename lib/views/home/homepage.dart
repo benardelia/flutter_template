@@ -1,9 +1,13 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:touchable_opacity/touchable_opacity.dart';
+import 'package:vilcom_digital_restaurant/config/screen_sizes_extension.dart';
 import 'package:vilcom_digital_restaurant/config/styles/input_decorator.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/bordered_container.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/custom_card.dart';
+import 'package:vilcom_digital_restaurant/custom_widgets/food_category_item.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/home_food_item.dart';
 import 'package:vilcom_digital_restaurant/models/product_model/product_model.dart';
 
@@ -40,7 +44,7 @@ class _HomePageState extends State<HomePage> {
                   children: [
                     HugeIcon(
                       icon: HugeIcons.strokeRoundedLocation01,
-                      color: Colors.black,
+                      color: context.primary,
                     ),
                     const Text("Tanzania"),
                     const Icon(HugeIcons.strokeRoundedArrowDown01),
@@ -66,46 +70,92 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
 
-            CustomCard(
-              height: 190,
-              width: 400,
-              color: context.primary,
+            CarouselSlider.builder(
+              itemCount: 4,
+              itemBuilder:
+                  (BuildContext context, int itemIndex, int pageViewIndex) =>
+                      Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: CustomCard(
+                          color: context.primary,
 
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text("Use code "),
-                      CustomCard(
-                        height: 38,
-                        width: 80,
-                        color: Colors.white,
-                        child: Text("First50"),
-                      ),
-                      Text(" at checkout"),
-                    ],
-                  ),
-                  Text("Hurry, offer ends soon!"),
+                          child: Column(
+                            spacing: 6,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Row(
+                                children: [
+                                  CText(text: "Use code ", color: Colors.white),
+                                  CustomCard(
+                                    padding: 0,
+                                    color: Colors.white,
+                                    child: Padding(
+                                      padding: const EdgeInsets.symmetric(
+                                        horizontal: 6.0,
+                                      ),
+                                      child: CText(
+                                        text: "FIRST 50",
+                                        color: context.primary,
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ),
+                                  CText(
+                                    text: " at checkout.",
+                                    color: Colors.white,
+                                  ),
+                                ],
+                              ),
+                              CText(
+                                text: "Hurry, offer ends soon!",
+                                color: Colors.white,
+                              ),
 
-                  Text("Get 50% Off"),
-                  Text("Your First Order!"),
-                  Row(
-                    children: [
-                      Text(""),
-                      Spacer(),
-                      TextButton(
-                        style: ButtonStyle(),
-                        onPressed: () {},
-                        child: Text(
-                          "Order Now",
-                          style: TextStyle(color: Colors.white),
+                              Column(
+                                spacing: 0,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  CText(
+                                    text: "Get 50% Off",
+                                    color: Colors.white,
+                                    size: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                  CText(
+                                    text: "Your First Order!",
+                                    color: Colors.white,
+                                    size: 20,
+                                    fontWeight: FontWeight.w600,
+                                  ),
+                                ],
+                              ),
+                              Row(
+                                children: [
+                                  Spacer(),
+                                  TouchableOpacity(
+                                    child: CustomCard(
+                                      padding: 0,
+                                      color: Colors.black,
+                                      child: Padding(
+                                        padding: const EdgeInsets.symmetric(
+                                          horizontal: 6.0,
+                                          vertical: 4,
+                                        ),
+                                        child: CText(
+                                          text: "Order Now",
+                                          color: Colors.amber,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          ),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
+              options: CarouselOptions(autoPlay: true, enlargeFactor: 0),
             ),
 
             SizedBox(
@@ -115,26 +165,14 @@ class _HomePageState extends State<HomePage> {
                 itemCount: categories.length,
                 itemBuilder: (context, index) {
                   final category = categories[index];
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 12.0),
-                    child: Column(
-                      children: [
-                        CustomCard(
-                          color: context.primary,
-                          child: Icon(category['icon'], size: 50),
-                        ),
-                        const SizedBox(height: 5),
-                        Text(category['label']),
-                      ],
-                    ),
-                  );
+                  return FoodCategoryItem(name: category['label']);
                 },
               ),
             ),
             Row(
               children: [
                 CText(
-                  text: "Top picks on delivo™",
+                  text: "Top picks on delivery™",
                   size: 20,
                   fontWeight: FontWeight.w600,
                 ),

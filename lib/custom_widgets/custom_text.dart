@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class CText extends StatelessWidget {
-  const CText(
-      {super.key,
-      required this.text,
-      this.color,
-      this.fontWeight,
-      this.size,
-      this.overflow,
-      this.underlined,
-      this.centered});
+  const CText({
+    super.key,
+    required this.text,
+    this.color,
+    this.fontWeight,
+    this.size,
+    this.overflow,
+    this.underlined,
+    this.centered,
+  });
 
   final String text;
   final Color? color;
@@ -35,25 +36,29 @@ class CText extends StatelessWidget {
           overflow:
               overflow == true ? TextOverflow.ellipsis : TextOverflow.visible,
           style: GoogleFonts.poppins(
-              decoration: TextDecoration.none,
-              textStyle: TextStyle(
-                  color: color ?? Theme.of(context).hintColor,
-                  fontSize: size ?? 12,
-                  fontWeight: fontWeight ?? FontWeight.normal,
-                  decorationThickness: 2.0,
-                  decorationColor: color ?? Theme.of(context).primaryColor)),
+            decoration: TextDecoration.none,
+            textStyle: TextStyle(
+              color: color ?? Theme.of(context).hintColor,
+              fontSize: size ?? 12,
+              fontWeight: fontWeight ?? FontWeight.normal,
+              decorationThickness: 2.0,
+              decorationColor: color ?? Theme.of(context).primaryColor,
+            ),
+          ),
         ),
         underlined == true
             ? Container(
-                height: 1, // Thickness of underline
-                width: textPainter.width +
-                    10, // Match underline width with text width
-                color: color ??
-                    Theme.of(context).primaryColor, // Color of underline
-                margin: EdgeInsets.only(
-                    top: 1), // Adjust space between text and underline
-              )
-            : SizedBox(),
+              height: 1, // Thickness of underline
+              width:
+                  textPainter.width +
+                  10, // Match underline width with text width
+              color:
+                  color ?? Theme.of(context).primaryColor, // Color of underline
+              margin: EdgeInsets.only(
+                top: 1,
+              ), // Adjust space between text and underline
+            )
+            : SizedBox.shrink(),
       ],
     );
   }

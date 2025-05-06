@@ -51,6 +51,7 @@ dependencies:
   google_fonts: ^6.2.1
   hugeicons: ^0.0.10
   touchable_opacity: ^1.2.0
+  carousel_slider: ^5.0.0
   
 
 dev_dependencies:

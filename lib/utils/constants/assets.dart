@@ -5,3 +5,4 @@ const scooter = 'assets/images/scooter.gif';
 const route = 'assets/images/route.png';
 const smartphone = 'assets/images/smartphone.png';
 const burger = 'assets/images/burger.png';
+const hamburger = 'assets/images/hamburger.jpeg';
