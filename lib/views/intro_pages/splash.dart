@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:vilcom_digital_restaurant/config/screen_sizes_extension.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/custom_text.dart';
+import 'package:vilcom_digital_restaurant/routes/routes.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -14,7 +15,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.pushReplacementNamed(context, '/login');
+      Navigator.pushReplacementNamed(context, Routes.login);
     });
     super.initState();
   }

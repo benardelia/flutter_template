@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
 import 'package:touchable_opacity/touchable_opacity.dart';
-import 'package:vilcom_digital_restaurant/config/screen_sizes_extension.dart';
 import 'package:vilcom_digital_restaurant/config/styles/input_decorator.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/bordered_container.dart';

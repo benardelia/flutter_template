@@ -6,7 +6,6 @@ import 'package:flutter/services.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:in_app_update/in_app_update.dart';
 import 'package:provider/provider.dart';
-import 'package:vilcom_digital_restaurant/views/authentication/login.dart';
 import 'package:vilcom_digital_restaurant/views/intro_pages/splash.dart';
 
 import 'config/theme.dart';
@@ -17,7 +16,6 @@ import 'routes/routes_generator.dart';
 import 'utils/constants/providers.dart';
 import 'utils/helpers/check_device.dart';
 import 'utils/interceptor/network_interceptor.dart';
-import 'views/intro_pages/splash_screen.dart';
 
 final GlobalKey<NavigatorState> navigatorKey = GlobalKey<NavigatorState>();
 

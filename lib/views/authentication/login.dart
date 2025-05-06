@@ -3,6 +3,7 @@ import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
 import 'package:vilcom_digital_restaurant/providers/login_provider.dart';
+import 'package:vilcom_digital_restaurant/routes/routes.dart';
 import 'package:vilcom_digital_restaurant/services/toast_service/toast_service.dart';
 
 import '../../config/styles/input_decorator.dart';
@@ -54,7 +55,7 @@ class _LoginState extends State<Login> {
                       ),
                     ),
 
-                    Center(child: CText(text: 'Login', size: 23)),
+                    CText(text: 'Login', size: 23),
 
                     TextFormField(
                       controller: usernameController,
@@ -94,7 +95,7 @@ class _LoginState extends State<Login> {
 
                           if (!provider.isLoading && !provider.hasError) {
                             // Navigate to the home screen
-                            Navigator.pushNamed(context, '/home');
+                            Navigator.pushNamed(context, Routes.home);
                           } else {
                             // Show error message
                             ToastService.showErrorToast(
@@ -121,7 +122,7 @@ class _LoginState extends State<Login> {
                         Text('Don\'t have an account?'),
                         TextButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, '/registration');
+                            Navigator.pushNamed(context, Routes.register);
                           },
                           child: Text('Sign Up'),
                         ),
