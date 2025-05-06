@@ -75,7 +75,7 @@ class _RegisterState extends State<Register> {
                       controller: passwordController,
                       decoration: InputDecorationX.decorator(
                         label: 'email',
-                        icon: HugeIcons.strokeRoundedLockPassword,
+                        icon: HugeIcons.strokeRoundedMailAccount02,
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -89,7 +89,7 @@ class _RegisterState extends State<Register> {
                       controller: passwordController,
                       decoration: InputDecorationX.decorator(
                         label: 'Phone Number',
-                        icon: HugeIcons.strokeRoundedLockPassword,
+                        icon: HugeIcons.strokeRoundedSmartPhone04,
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
