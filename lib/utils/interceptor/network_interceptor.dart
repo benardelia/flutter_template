@@ -45,9 +45,9 @@ class NetworkInterceptor {
   Future<void> _showError(String message) async {
     var connectivity = await InternetConnection.hasInternetConnection();
     if (!connectivity) {
-      ScaffoldMessenger.of(_context).showSnackBar(
-        SnackBar(content: Text("No internet connection!")),
-      );
+      ScaffoldMessenger.of(
+        _context,
+      ).showSnackBar(SnackBar(content: Text("Network Error!")));
     }
     // Log.i(message);
     // ScaffoldMessenger.of(_context).showSnackBar(

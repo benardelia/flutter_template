@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hugeicons/hugeicons.dart';
+import 'package:vilcom_digital_restaurant/config/screen_sizes_extension.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
+import 'package:vilcom_digital_restaurant/custom_widgets/custom_huge_icon.dart';
 import 'package:vilcom_digital_restaurant/models/product_model/product_model.dart';
 import 'package:vilcom_digital_restaurant/utils/constants/assets.dart';
 
 import 'custom_card.dart';
 import 'custom_text.dart';
 
-class HomeFoodItem extends StatelessWidget {
-  const HomeFoodItem({super.key, required this.product});
+class ExploreFooItem extends StatelessWidget {
+  const ExploreFooItem({super.key, required this.product});
   final ProductModel product;
 
   @override
   Widget build(BuildContext context) {
     return CustomCard(
-      height: 230,
-      width: 270,
+      // height: 500,
+      width: context.screenWidth * 0.4,
       padding: 0,
       border: 0,
       // color: context.primary,
@@ -24,7 +26,7 @@ class HomeFoodItem extends StatelessWidget {
           Column(
             children: [
               Expanded(
-                flex: 3,
+                flex: 1,
                 child: Container(
                   decoration: BoxDecoration(
                     color: context.primary,
@@ -40,15 +42,15 @@ class HomeFoodItem extends StatelessWidget {
                 ),
               ),
               Expanded(
-                flex: 2,
+                flex: 1,
                 child: Padding(
                   padding: const EdgeInsets.all(6.0),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       CText(
-                        text: 'CheeseBurger',
-                        size: 15,
+                        text: 'Cheese Burger',
+                        size: 13,
                         fontWeight: FontWeight.w600,
                       ),
                       Row(
@@ -61,10 +63,15 @@ class HomeFoodItem extends StatelessWidget {
                           ),
                           CText(
                             text: 'Burger Haven',
-                            size: 13,
+                            size: 10,
                             fontWeight: FontWeight.w600,
                           ),
                           Spacer(),
+                        ],
+                      ),
+
+                      Row(
+                        children: [
                           CText(text: '4.8', fontWeight: FontWeight.w600),
                           HugeIcon(
                             icon: HugeIcons.strokeRoundedStar,
@@ -74,31 +81,33 @@ class HomeFoodItem extends StatelessWidget {
                           CText(text: '(335+)', fontWeight: FontWeight.w600),
                         ],
                       ),
-                      Row(
-                        spacing: 1,
-                        children: [
-                          CText(
-                            overflow: true,
-                            text: r'$0 Delivery free over $26',
-                            color: context.primary,
-                            // size: 13,
-                            // fontWeight: FontWeight.w600,
-                          ),
-                          Spacer(),
+                      CText(
+                        overflow: true,
+                        text: r'$0 Delivery free over $26',
+                        color: context.primary,
+                        size: 10,
+                        // fontWeight: FontWeight.w600,
+                      ),
 
+                      Row(
+                        children: [
                           CustomCard(
                             padding: 4,
                             color: Colors.black,
-                            child: Row(
-                              spacing: 2,
-                              children: [
-                                CText(
-                                  text: r'$8.99',
-                                  color: Colors.white,
-                                  size: 14,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ],
+                            child: CText(
+                              text: r'$8.99',
+                              color: Colors.white,
+                              size: 10,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          Spacer(),
+                          CustomCard(
+                            padding: 2,
+                            color: Colors.black,
+                            child: CHugeIcon(
+                              icon: HugeIcons.strokeRoundedCheckmarkCircle01,
+                              size: 18,
                             ),
                           ),
                         ],
@@ -110,7 +119,7 @@ class HomeFoodItem extends StatelessWidget {
             ],
           ),
           Positioned(
-            top: 100,
+            top: 80,
             left: 5,
             child: CustomCard(
               // color: Colors.white,
@@ -121,7 +130,7 @@ class HomeFoodItem extends StatelessWidget {
                   HugeIcon(
                     icon: HugeIcons.strokeRoundedTime04,
                     color: context.primary,
-                    size: 20,
+                    size: 18,
                   ),
                   CText(text: '31 min'),
                 ],

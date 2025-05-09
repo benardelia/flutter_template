@@ -20,7 +20,7 @@ class NetworkLoader {
         children: [
           ModalBarrier(color: Colors.black54, dismissible: false),
           ModalBarrier(
-            color: Theme.of(context).colorScheme.onSurface.withOpacity(0.5),
+            color: Theme.of(context).colorScheme.onSurface.withAlpha(127),
             dismissible: false,
           ),
           Center(

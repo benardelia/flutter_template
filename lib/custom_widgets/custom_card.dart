@@ -11,6 +11,7 @@ class CustomCard extends StatelessWidget {
     this.bColor,
     this.border,
     this.padding,
+    this.hasShadow = true,
   });
   final Widget child;
   final double? borderRadius;
@@ -20,6 +21,7 @@ class CustomCard extends StatelessWidget {
   final double? border;
   final Color? bColor;
   final double? padding;
+  final bool? hasShadow;
 
   @override
   Widget build(BuildContext context) {
@@ -31,18 +33,21 @@ class CustomCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: color,
         borderRadius: BorderRadius.circular(borderRadius!),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, 5),
-          ),
-          BoxShadow(
-            color: Colors.black.withOpacity(0.1),
-            blurRadius: 10,
-            offset: const Offset(0, -5),
-          ),
-        ],
+        boxShadow:
+            hasShadow!
+                ? [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, 5),
+                  ),
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    blurRadius: 10,
+                    offset: const Offset(0, -5),
+                  ),
+                ]
+                : null,
         border: Border.all(
           color: bColor ?? Colors.transparent,
           width: border ?? 1,

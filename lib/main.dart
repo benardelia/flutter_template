@@ -13,7 +13,7 @@ import 'custom_widgets/action_button.dart';
 import 'custom_widgets/bordered_container.dart';
 import 'custom_widgets/custom_text.dart';
 import 'routes/routes_generator.dart';
-import 'utils/constants/providers.dart';
+import 'utils/constants/providers_registry.dart';
 import 'utils/helpers/check_device.dart';
 import 'utils/interceptor/network_interceptor.dart';
 

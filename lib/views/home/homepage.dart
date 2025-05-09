@@ -33,168 +33,175 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Colors.white,
       body: Padding(
         padding: const EdgeInsets.only(left: 20.0, right: 20, top: 60),
-        child: Column(
-          spacing: 10,
-          children: [
-            Row(
-              children: [
-                Row(
-                  spacing: 10,
-                  children: [
-                    HugeIcon(
-                      icon: HugeIcons.strokeRoundedLocation01,
+        child: SingleChildScrollView(
+          child: Column(
+            spacing: 10,
+            children: [
+              Row(
+                children: [
+                  Row(
+                    spacing: 10,
+                    children: [
+                      HugeIcon(
+                        icon: HugeIcons.strokeRoundedLocation01,
+                        color: context.primary,
+                      ),
+                      const Text("Tanzania"),
+                      const Icon(HugeIcons.strokeRoundedArrowDown01),
+                    ],
+                  ),
+                  Spacer(),
+                  Icon(HugeIcons.strokeRoundedNotification03),
+                ],
+              ),
+
+              TextField(
+                decoration: InputDecorationX.decorator(
+                  label: 'Search',
+                  icon: HugeIcons.strokeRoundedSearch01,
+                  suffixIcon: CBCircle(
+                    border: 40,
+                    theme: context.primary.withAlpha(50),
+                    child: HugeIcon(
+                      icon: HugeIcons.strokeRoundedMic01,
                       color: context.primary,
                     ),
-                    const Text("Tanzania"),
-                    const Icon(HugeIcons.strokeRoundedArrowDown01),
-                  ],
-                ),
-                Spacer(),
-                Icon(HugeIcons.strokeRoundedNotification03),
-              ],
-            ),
-
-            TextField(
-              decoration: InputDecorationX.decorator(
-                label: 'Search',
-                icon: HugeIcons.strokeRoundedSearch01,
-                suffixIcon: CBCircle(
-                  border: 40,
-                  theme: context.primary.withAlpha(50),
-                  child: HugeIcon(
-                    icon: HugeIcons.strokeRoundedMic01,
-                    color: context.primary,
                   ),
                 ),
               ),
-            ),
 
-            CarouselSlider.builder(
-              itemCount: 4,
-              itemBuilder:
-                  (BuildContext context, int itemIndex, int pageViewIndex) =>
-                      Padding(
-                        padding: const EdgeInsets.all(2.0),
-                        child: CustomCard(
-                          color: context.primary,
+              CarouselSlider.builder(
+                itemCount: 4,
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) =>
+                        Padding(
+                          padding: const EdgeInsets.all(2.0),
+                          child: CustomCard(
+                            color: context.primary,
 
-                          child: Column(
-                            spacing: 6,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  CText(text: "Use code ", color: Colors.white),
-                                  CustomCard(
-                                    padding: 0,
-                                    color: Colors.white,
-                                    child: Padding(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 6.0,
-                                      ),
-                                      child: CText(
-                                        text: "FIRST 50",
-                                        color: context.primary,
-                                        fontWeight: FontWeight.w500,
-                                      ),
+                            child: Column(
+                              spacing: 6,
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Row(
+                                  children: [
+                                    CText(
+                                      text: "Use code ",
+                                      color: Colors.white,
                                     ),
-                                  ),
-                                  CText(
-                                    text: " at checkout.",
-                                    color: Colors.white,
-                                  ),
-                                ],
-                              ),
-                              CText(
-                                text: "Hurry, offer ends soon!",
-                                color: Colors.white,
-                              ),
-
-                              Column(
-                                spacing: 0,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  CText(
-                                    text: "Get 50% Off",
-                                    color: Colors.white,
-                                    size: 20,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                  CText(
-                                    text: "Your First Order!",
-                                    color: Colors.white,
-                                    size: 20,
-                                    fontWeight: FontWeight.w600,
-                                  ),
-                                ],
-                              ),
-                              Row(
-                                children: [
-                                  Spacer(),
-                                  TouchableOpacity(
-                                    child: CustomCard(
+                                    CustomCard(
                                       padding: 0,
-                                      color: Colors.black,
+                                      color: Colors.white,
                                       child: Padding(
                                         padding: const EdgeInsets.symmetric(
                                           horizontal: 6.0,
-                                          vertical: 4,
                                         ),
                                         child: CText(
-                                          text: "Order Now",
-                                          color: Colors.amber,
-                                          fontWeight: FontWeight.w600,
+                                          text: "FIRST 50",
+                                          color: context.primary,
+                                          fontWeight: FontWeight.w500,
                                         ),
                                       ),
                                     ),
-                                  ),
-                                ],
-                              ),
-                            ],
+                                    CText(
+                                      text: " at checkout.",
+                                      color: Colors.white,
+                                    ),
+                                  ],
+                                ),
+                                CText(
+                                  text: "Hurry, offer ends soon!",
+                                  color: Colors.white,
+                                ),
+
+                                Column(
+                                  spacing: 0,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    CText(
+                                      text: "Get 50% Off",
+                                      color: Colors.white,
+                                      size: 20,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    CText(
+                                      text: "Your First Order!",
+                                      color: Colors.white,
+                                      size: 20,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  children: [
+                                    Spacer(),
+                                    TouchableOpacity(
+                                      child: CustomCard(
+                                        padding: 0,
+                                        color: Colors.black,
+                                        child: Padding(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 6.0,
+                                            vertical: 4,
+                                          ),
+                                          child: CText(
+                                            text: "Order Now",
+                                            color: Colors.amber,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ),
-                      ),
-              options: CarouselOptions(autoPlay: true, enlargeFactor: 0),
-            ),
+                options: CarouselOptions(autoPlay: true, enlargeFactor: 0),
+              ),
 
-            SizedBox(
-              height: 100, // Adjust height to fit the cards
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                itemCount: categories.length,
-                itemBuilder: (context, index) {
-                  final category = categories[index];
-                  return FoodCategoryItem(name: category['label']);
-                },
-              ),
-            ),
-            Row(
-              children: [
-                CText(
-                  text: "Top picks on delivery™",
-                  size: 20,
-                  fontWeight: FontWeight.w600,
+              SizedBox(
+                height: 100, // Adjust height to fit the cards
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  itemCount: categories.length,
+                  itemBuilder: (context, index) {
+                    final category = categories[index];
+                    return FoodCategoryItem(name: category['label']);
+                  },
                 ),
-                Spacer(),
-                TextButton(onPressed: () {}, child: Text("See All")),
-              ],
-            ),
-            SizedBox(
-              height: 235,
-              child: ListView.builder(
-                scrollDirection: Axis.horizontal,
-                shrinkWrap: true,
-                itemCount: 5,
-                itemBuilder: (context, index) {
-                  return Padding(
-                    padding: const EdgeInsets.only(right: 10, bottom: 10),
-                    child: HomeFoodItem(product: ProductModel()),
-                  );
-                },
               ),
-            ),
-            // Row(children: [HomeFoodItem()]),
-          ],
+              Row(
+                children: [
+                  CText(
+                    text: "Top picks on delivery™",
+                    size: 20,
+                    fontWeight: FontWeight.w600,
+                  ),
+                  Spacer(),
+                  TextButton(onPressed: () {}, child: Text("See All")),
+                ],
+              ),
+              SizedBox(
+                height: 235,
+                child: ListView.builder(
+                  scrollDirection: Axis.horizontal,
+                  shrinkWrap: true,
+                  itemCount: 5,
+                  itemBuilder: (context, index) {
+                    return Padding(
+                      padding: const EdgeInsets.only(right: 10, bottom: 10),
+                      child: HomeFoodItem(product: ProductModel()),
+                    );
+                  },
+                ),
+              ),
+
+              SizedBox(height: 150),
+              // Row(children: [HomeFoodItem()]),
+            ],
+          ),
         ),
       ),
     );

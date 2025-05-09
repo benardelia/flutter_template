@@ -24,7 +24,7 @@ class _LoginState extends State<Login> {
   @override
   void initState() {
     usernameController.text = 'vilcom.digital@gmail.com';
-    passwordController.text = 'vilcom@12345';
+    passwordController.text = 'vilcom@123451';
     super.initState();
   }
 
@@ -95,7 +95,8 @@ class _LoginState extends State<Login> {
 
                           if (!provider.isLoading && !provider.hasError) {
                             // Navigate to the home screen
-                            Navigator.pushNamed(context, Routes.home);
+                            // Navigator.pushNamed(context, Routes.home);
+                            Navigator.pushNamed(context, Routes.navigation);
                           } else {
                             // Show error message
                             ToastService.showErrorToast(
@@ -103,6 +104,7 @@ class _LoginState extends State<Login> {
                               message: 'Invalid credentials',
                             );
                           }
+                          // Navigator.pushNamed(context, Routes.navigation);
                         }
                       },
                       style: ElevatedButton.styleFrom(

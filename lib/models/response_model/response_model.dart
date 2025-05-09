@@ -4,16 +4,16 @@ part 'response_model.g.dart';
 
 @JsonSerializable()
 class ResponseObjects {
-  final String id;
-  final bool status;
-  final int code;
-  final String message;
+  final String? id;
+  final bool? status;
+  final int? code;
+  final String? message;
 
   ResponseObjects(
-      {required this.id,
-      required this.status,
-      required this.code,
-      required this.message});
+      {this.id,
+      this.status,
+      this.code,
+      this.message});
 
   factory ResponseObjects.fromJson(Map<String, dynamic> json) =>
       _$ResponseObjectsFromJson(json);

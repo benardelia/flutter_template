@@ -47,7 +47,7 @@ dependencies:
   nested: ^1.0.0
   http: ^1.3.0
   shared_preferences: ^2.5.3
-  flutter_secure_storage: ^4.2.1
+  flutter_secure_storage: ^9.2.4
   google_fonts: ^6.2.1
   hugeicons: ^0.0.10
   touchable_opacity: ^1.2.0
@@ -55,6 +55,10 @@ dependencies:
   
 
   freezed_annotation: any
+  persistent_bottom_nav_bar_v2: ^5.4.0
+  sliver_app_bar_builder: ^1.1.0
+  # item_count_number_button: ^1.9.2
+  counter_button: ^1.0.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

@@ -1,6 +1,4 @@
-
 import 'package:flutter/material.dart';
-
 
 import '../views/authentication/change_password.dart';
 import '../views/authentication/forgot_password.dart';
@@ -9,9 +7,11 @@ import '../views/authentication/otp_verification.dart';
 import '../views/authentication/register.dart';
 import '../views/help_center/help_center.dart';
 import '../views/home/homepage.dart';
+import '../views/home/navigation.dart';
 import '../views/intro_pages/on_boarding_screen.dart';
 import '../views/intro_pages/terms_and_policy.dart';
 import '../views/profile/profile.dart' show Profile;
+import '../views/profile/update_profile.dart';
 import 'routes.dart';
 
 class RouteGenerator {
@@ -23,7 +23,7 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const Login());
       case Routes.forgetPass:
         return MaterialPageRoute(builder: (_) => const ForgotPassword());
-     
+
       case Routes.register:
         return MaterialPageRoute(builder: (_) => const Register());
       // with argument pass this
@@ -46,6 +46,10 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ChangePassword());
       case Routes.helpCenter:
         return MaterialPageRoute(builder: (_) => const HelpCenter());
+      case Routes.profileUpdate:
+        return MaterialPageRoute(builder: (_) => const UpdateProfile());
+      case Routes.navigation:
+        return MaterialPageRoute(builder: (_) => const Navigation());
       // case Routes.textBook:
       //   final args = settings.arguments as Map<String, dynamic>;
       //   return MaterialPageRoute(

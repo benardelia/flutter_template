@@ -3,34 +3,40 @@ import 'package:hugeicons/hugeicons.dart';
 import 'package:provider/provider.dart';
 import 'package:vilcom_digital_restaurant/config/screen_sizes_extension.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
-import 'package:vilcom_digital_restaurant/custom_widgets/custom_huge_icon.dart';
+import 'package:vilcom_digital_restaurant/custom_widgets/custom_dropdown.dart';
 import 'package:vilcom_digital_restaurant/providers/user_profile_provider.dart';
 import 'package:vilcom_digital_restaurant/utils/helpers/logging_util.dart';
 
 import '../../config/styles/input_decorator.dart';
+import '../../custom_widgets/custom_huge_icon.dart';
 import '../../custom_widgets/custom_text.dart';
 import '../../routes/routes.dart';
 import '../../services/toast_service/toast_service.dart';
 
-class Register extends StatefulWidget {
-  const Register({super.key});
+class UpdateProfile extends StatefulWidget {
+  const UpdateProfile({super.key});
 
   @override
-  State<Register> createState() => _RegisterState();
+  State<UpdateProfile> createState() => _UpdateProfileState();
 }
 
-class _RegisterState extends State<Register> {
+class _UpdateProfileState extends State<UpdateProfile> {
   final formKey = GlobalKey<FormState>();
   final firstName = TextEditingController();
   final lastName = TextEditingController();
   final email = TextEditingController();
-  final passwordConfirm = TextEditingController();
-  final passwordController = TextEditingController();
+  final phone = TextEditingController();
+  final gender = TextEditingController();
 
   @override
   void initState() {
-    // firstName.text = 'vilcom.digital@gmail.com';
-    // passwordController.text = 'vilcom@12345';
+    var user =
+        context.read<UserProfileProvider>().userProfileAndRoleData?.userProfile;
+    firstName.text = user?.userFirstName ?? '';
+    lastName.text = user?.userLastName ?? '';
+    email.text = user?.userEmail ?? '';
+    phone.text = user?.profilePhone ?? '';
+    gender.text = user?.profileGender ?? '';
     super.initState();
   }
 
@@ -38,6 +44,7 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
+      appBar: AppBar(),
       body: Consumer<UserProfileProvider>(
         builder: (context, provider, child) {
           return Padding(
@@ -50,27 +57,18 @@ class _RegisterState extends State<Register> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    SizedBox(height: context.screenHeight * 0.1),
-                    Center(
-                      child: CText(
-                        text: 'vilcom digital restaurant',
-                        fontWeight: FontWeight.bold,
-                        size: 23,
-                        // style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-
-                    CText(text: 'Register', size: 23),
+                    CText(text: 'Update Profile', size: 23),
 
                     TextFormField(
                       controller: firstName,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecorationX.decorator(
-                        label: 'Username',
+                        label: 'First Name',
                         icon: HugeIcons.strokeRoundedUser,
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your username';
+                          return 'Please enter your first name';
                         }
                         return null;
                       },
@@ -78,13 +76,14 @@ class _RegisterState extends State<Register> {
 
                     TextFormField(
                       controller: lastName,
+                      keyboardType: TextInputType.name,
                       decoration: InputDecorationX.decorator(
                         label: 'Last Name',
                         icon: HugeIcons.strokeRoundedUser,
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your username';
+                          return 'Please enter your last name';
                         }
                         return null;
                       },
@@ -92,85 +91,44 @@ class _RegisterState extends State<Register> {
 
                     TextFormField(
                       controller: email,
+                      keyboardType: TextInputType.emailAddress,
                       decoration: InputDecorationX.decorator(
                         label: 'email',
                         icon: HugeIcons.strokeRoundedMailAccount02,
                       ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
+                          return 'Please enter your email';
+                        }
+                        return null;
+                      },
+                    ),
+                    TextFormField(
+                      controller: phone,
+                      keyboardType: TextInputType.phone,
+                      decoration: InputDecorationX.decorator(
+                        label: 'Phone',
+                        icon: HugeIcons.strokeRoundedSmartPhone01,
+                      ),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your phone number';
                         }
                         return null;
                       },
                     ),
 
-                    // TextFormField(
-                    //   controller: passwordController,
-                    //   decoration: InputDecorationX.decorator(
-                    //     label: 'Phone Number',
-                    //     icon: HugeIcons.strokeRoundedSmartPhone04,
-                    //   ),
-                    //   validator: (value) {
-                    //     if (value == null || value.isEmpty) {
-                    //       return 'Please enter your password';
-                    //     }
-                    //     return null;
-                    //   },
-                    // ),
-                    TextFormField(
-                      controller: passwordController,
-                      obscureText: provider.hidePassword,
-                      decoration: InputDecorationX.decorator(
-                        label: 'Password',
-                        icon: HugeIcons.strokeRoundedLockPassword,
-                        suffixIcon: TextButton(
-                          child: CHugeIcon(
-                            icon:
-                                provider.hidePassword
-                                    ? Icons.remove_red_eye_outlined
-                                    : HugeIcons.strokeRoundedViewOff,
-                          ),
-                          onPressed: () {
-                            provider.hidePassword = !provider.hidePassword;
-                            Log.e(provider.hidePassword);
-                          },
-                        ),
-                      ),
-                      validator: (value) {
-                        if (value == null || value.isEmpty) {
-                          return 'Please enter your password';
-                        }
-                        return null;
+                    CDropDownButton(
+                      label: 'Gender',
+                      value: provider.selectedGender,
+                      items: provider.genderOptions,
+                      onChange: (String? newValue) {
+                        provider.selectedGender = newValue;
                       },
-                    ),
-
-                    TextFormField(
-                      controller: passwordConfirm,
-                      obscureText: provider.hidePassword,
-                      decoration: InputDecorationX.decorator(
-                        label: 'Confirm Password',
-                        icon: HugeIcons.strokeRoundedLockPassword,
-                        suffixIcon: TextButton(
-                          child: CHugeIcon(
-                            icon:
-                                provider.hidePassword
-                                    ? Icons.remove_red_eye_outlined
-                                    : HugeIcons.strokeRoundedViewOff,
-                          ),
-                          onPressed: () {
-                            provider.hidePassword = !provider.hidePassword;
-                          },
-                        ),
-                      ),
                       validator: (value) {
                         if (value == null || value.isEmpty) {
-                          return 'Please enter your password again';
+                          return 'Please select your gender';
                         }
-
-                        if (value != passwordController.text) {
-                          return 'Please enter the same password again';
-                        }
-
                         return null;
                       },
                     ),
@@ -178,16 +136,29 @@ class _RegisterState extends State<Register> {
                     ElevatedButton(
                       onPressed: () async {
                         if (formKey.currentState!.validate()) {
-                          await provider.createUserProfile(
+                          await provider.updateUserProfile(
+                            profileUniqueId:
+                                provider
+                                    .userProfileAndRoleData!
+                                    .userProfile!
+                                    .profileUniqueId!,
                             firstName: firstName.text,
                             lastName: lastName.text,
                             email: email.text,
-                            password: passwordController.text,
+                            gender: provider.selectedGender!,
+                            phone: phone.text,
                           );
 
                           if (provider.response?.status == true) {
                             // Navigate to the home screen
-                            Navigator.pushNamed(context, Routes.login);
+                            provider.getUserProfile();
+                            ToastService.showSuccessToast(
+                              context,
+                              message:
+                                  provider.response?.message ??
+                                  'Profile Updated',
+                            );
+                            Navigator.pop(context);
                           } else {
                             // Show error message
                             ToastService.showErrorToast(
@@ -205,22 +176,9 @@ class _RegisterState extends State<Register> {
                         backgroundColor: context.primary,
                       ),
                       child: const Text(
-                        'Register',
+                        'Update',
                         style: TextStyle(fontSize: 20),
                       ),
-                    ),
-
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text('Already have an account?'),
-                        TextButton(
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                          child: Text('Sign In'),
-                        ),
-                      ],
                     ),
                   ],
                 ),

@@ -1,8 +1,8 @@
 class Routes {
-  static const String home = '/home';
-  static const String login = '/login';
-  static const String registration = '/registration';
-  static const String welcomeScreen = '/welcome_screen';
+  static const home = '/home';
+  static const login = '/login';
+  static const registration = '/registration';
+  static const welcomeScreen = '/welcome_screen';
   static const forgetPass = '/forgetPass';
   static const register = '/register';
   static const otpVerification = '/otpVerification';
@@ -11,4 +11,6 @@ class Routes {
   static const profile = '/profile';
   static const changePassword = '/changePassword';
   static const helpCenter = '/helpCenter';
+  static const navigation = '/navigation';
+  static const profileUpdate = '/profileUpdate';
 }
