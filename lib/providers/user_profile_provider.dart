@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:vilcom_digital_restaurant/models/response_model/response_model.dart';
 import 'package:vilcom_digital_restaurant/models/user_profile_role/user_profile_role.dart';
 import 'package:vilcom_digital_restaurant/services/graphql_service/user_profile_service.dart';
-import 'package:vilcom_digital_restaurant/utils/helpers/logging_util.dart';
-import 'package:vilcom_digital_restaurant/views/authentication/change_password.dart';
 
 class UserProfileProvider extends ChangeNotifier {
   UserProfileService userProfileService = UserProfileService();

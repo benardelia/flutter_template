@@ -5,12 +5,9 @@ import 'package:vilcom_digital_restaurant/config/screen_sizes_extension.dart';
 import 'package:vilcom_digital_restaurant/config/theme_color_extension.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/custom_dropdown.dart';
 import 'package:vilcom_digital_restaurant/providers/user_profile_provider.dart';
-import 'package:vilcom_digital_restaurant/utils/helpers/logging_util.dart';
 
 import '../../config/styles/input_decorator.dart';
-import '../../custom_widgets/custom_huge_icon.dart';
 import '../../custom_widgets/custom_text.dart';
-import '../../routes/routes.dart';
 import '../../services/toast_service/toast_service.dart';
 
 class UpdateProfile extends StatefulWidget {

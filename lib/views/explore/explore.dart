@@ -8,7 +8,6 @@ import 'package:vilcom_digital_restaurant/custom_widgets/custom_huge_icon.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/custom_tabbed_bar.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/custom_text.dart';
 import 'package:vilcom_digital_restaurant/custom_widgets/food_exprole_item.dart';
-import 'package:vilcom_digital_restaurant/custom_widgets/home_food_item.dart';
 import 'package:vilcom_digital_restaurant/models/product_model/product_model.dart';
 import 'package:vilcom_digital_restaurant/utils/constants/assets.dart';
 
