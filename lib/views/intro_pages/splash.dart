@@ -61,7 +61,7 @@ class _SplashState extends State<Splash> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'Vilcom',
+                    'Flutter',
                     style: TextStyle(
                       fontSize: 90,
                       fontWeight: FontWeight.bold,
@@ -69,7 +69,7 @@ class _SplashState extends State<Splash> {
                     ),
                   ),
                   CText(
-                    text: 'Digital',
+                    text: 'Template',
                     size: 60,
                     fontWeight: FontWeight.bold,
                     // style: TextStyle(
@@ -79,7 +79,7 @@ class _SplashState extends State<Splash> {
                     // ),
                   ),
                   Text(
-                    'Restaurant',
+                    'App',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.bold,

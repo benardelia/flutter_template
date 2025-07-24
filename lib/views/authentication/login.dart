@@ -23,8 +23,8 @@ class _LoginState extends State<Login> {
 
   @override
   void initState() {
-    usernameController.text = 'vilcom.digital@gmail.com';
-    passwordController.text = 'vilcom@123451';
+    // usernameController.text = 'vilcom.digital@gmail.com';
+    // passwordController.text = 'vilcom@123451';
     super.initState();
   }
 
@@ -48,7 +48,7 @@ class _LoginState extends State<Login> {
                     SizedBox(height: size.height * 0.25),
                     Center(
                       child: CText(
-                        text: 'vilcom digital restaurant',
+                        text: 'Flutter Template App',
                         fontWeight: FontWeight.bold,
                         size: 23,
                         // style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),

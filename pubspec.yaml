@@ -59,6 +59,7 @@ dependencies:
   sliver_app_bar_builder: ^1.1.0
   # item_count_number_button: ^1.9.2
   counter_button: ^1.0.1
+  get: ^4.7.2
 dev_dependencies:
   flutter_test:
     sdk: flutter

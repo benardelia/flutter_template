@@ -26,6 +26,7 @@ Future<void> main() async {
     DeviceOrientation.portraitUp,
   ]);
   await Hive.initFlutter();
+  registerControllers();
   bool isDeviceSafe = await DeviceChecker.isSafeDevice();
   bool developerModeEnabled = await DeviceChecker.isDevelopmentModeEnable();
   if ((!isDeviceSafe || developerModeEnabled) && !kDebugMode) {
