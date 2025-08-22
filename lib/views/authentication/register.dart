@@ -53,7 +53,7 @@ class _RegisterState extends State<Register> {
                     SizedBox(height: context.screenHeight * 0.1),
                     Center(
                       child: CText(
-                        text: 'vilcom digital restaurant',
+                        text: 'Flutter Template App',
                         fontWeight: FontWeight.bold,
                         size: 23,
                         // style: TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
